@@ -2,7 +2,7 @@ import { BiCalendarPlus } from "react-icons/bi";
 const AddAppoint = () => {
 	return (
     <div>
-      <button className="bg-blue-400 text-white px-2 py-3 w-full text-left rounded-t-md">
+      <button className="bg-blue-400 text-white px-2 py-3 w-full text-left rounded-t-md" onClick={() => (alert(0))}>
         <div><BiCalendarPlus className="inline-block align-text-top" />  Add Appointment</div>
       </button>
       <div className="border-r-2 border-b-2 border-l-2 border-light-blue-500 rounded-b-md pl-4 pr-4 pb-4">
