@@ -6,6 +6,14 @@ import AddAppoint from "./components/AddAppointment";
 import AppointmentLists from './components/AppointmentLists';
 const App = () => {
   let [appointLists, setAppointLists] = useState([]);
+  let [query, setQuery] = useState("");
+    const filteredAppointments = appointLists.filter(
+    item => {
+      return (
+        item.petName.toLowerCase().includes(query.toLowerCase())
+      )
+    }
+  );
   const fetchData = useCallback(() => {
     fetch('./data.json')
     .then(resp => resp.json())
@@ -23,10 +31,11 @@ const App = () => {
       Your Appointment
       </h1>
       <AddAppoint/>
-      <Search />
+      <Search query={query}
+      onQueryChange={myQuery => setQuery(myQuery)}/>
 
       <ul className="divide-y divide-gray-200">
-        {appointLists.map(data => (
+        {filteredAppointments.map(data => (
           <AppointmentLists 
             key={data.id} 
             data={data}
