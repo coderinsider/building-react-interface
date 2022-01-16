@@ -39,7 +39,10 @@ const App = () => {
       <BiArchive className="inline-block text-red-800"/>
       Your Appointment
       </h1>
-      <AddAppoint/>
+      <AddAppoint
+      onSendAppointment={myAppointment => setAppointLists([...appointLists, myAppointment])}
+      lastId={appointLists.reduce((max, item) => Number(item.id) > max ? Number(item.id) : max, 0)}
+      />
       <Search query={query}
         onQueryChange={myQuery => setQuery(myQuery)}
         orderBy={orderBy}
