@@ -1,7 +1,7 @@
 import { BiSearch, BiCaretDown } from "react-icons/bi";
 import   DropDown  from "./DropDown";
 import { useState } from "react";
-const Search = ({query, onQueryChange}) => {
+const Search = ({query, onQueryChange, sortBy, onSortByChange, orderBy, onOrderByChange}) => {
 	let [toggleSort, setToggleSort] = useState(false);
 	return (
 		<div className="py-5">
@@ -27,7 +27,13 @@ const Search = ({query, onQueryChange}) => {
 							Sort By 
 							<BiCaretDown className="ml-2" />
 						</button>
-						<DropDown toggle={toggleSort}/>
+						<DropDown 
+							toggle={toggleSort}
+							sortBy={sortBy}
+							onSortByChange={mySort => onSortByChange(mySort)}
+							orderBy={orderBy}
+							onOrderByChange={myOrder => onOrderByChange(myOrder)}
+						/>
 					</div>
 				</div>
 			</div>

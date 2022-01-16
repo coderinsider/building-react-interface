@@ -18,7 +18,7 @@ const App = () => {
       )
     }
   ).sort((a,b) => {
-    let order = (orderBy == 'desc') ? 1: -1;
+    let order = (orderBy == 'asc') ? 1: -1;
     return (
       a[sortBy].toLowerCase() < b[sortBy].toLowerCase() ? -1 * order : 1 * order
     )
@@ -41,7 +41,12 @@ const App = () => {
       </h1>
       <AddAppoint/>
       <Search query={query}
-      onQueryChange={myQuery => setQuery(myQuery)}/>
+        onQueryChange={myQuery => setQuery(myQuery)}
+        orderBy={orderBy}
+        onOrderByChange={mySort => setOrderBy(mySort)}
+        sortBy={sortBy}
+        onSortByChange={mySort => setSortBy(mySort)}
+      />
 
       <ul className="divide-y divide-gray-200">
         {filteredAppointments.map(data => (
