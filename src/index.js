@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 const getDOM = document.getElementById('mainpaenl');
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  getDOM
+   <React.StrictMode>
+      <App />
+   </React.StrictMode>,
+   getDOM
 );
 
 
