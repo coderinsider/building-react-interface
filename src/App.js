@@ -30,6 +30,10 @@ const App = () => {
           <AppointmentLists 
             key={data.id} 
             data={data}
+            onDeleteAppointment={
+              appointmentId =>
+                setAppointLists(appointLists.filter(data => data.id != appointmentId))
+            }
           />
         ))}
       </ul>
